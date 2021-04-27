@@ -4,6 +4,21 @@ module DerivingInstances where
 
 data DayOfWeek = 
     Mon | Tue | Weds | Thu | Fri | Sat | Sun
+    deriving Show
+
+-- Default Ord Instance: Values to the left are LESS THAN values placed to the right
+-- deriving (Ord, Show)
+
+-- Write own Ord Instance to make Friday greatest day
+instance Ord DayOfWeek where
+    compare Fri Fri = EQ
+    compare Fri _   = GT
+    compare _ Fri   = LT
+    compare _ _     = EQ
+
+
+
+
 
 
 data Date =
