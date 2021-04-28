@@ -2,6 +2,7 @@
 
 module ChapterExercises where
 
+import Data.List (sort)
 
 -- Does it typecheck?
 
@@ -61,4 +62,89 @@ equalityForAll p p' = p == p'
 comparePapus :: Papu -> Papu -> Bool
 comparePapus p p' = p > p'
 -}
+
+-- Match the types
+-- 1 --
+i :: Num a => a
+i = 1
+
+-- 2 --
+f :: Float
+f = 1.0
+
+-- 3 --
+-- h :: Float works also
+h :: Fractional a => a
+h = 1.0
+
+-- 4 --
+g :: RealFrac a => a
+g = 1.0
+
+
+-- 5 --
+-- freud :: a -> a
+-- Both methods work since Ord already assumes Eq
+freud :: Ord a => a -> a
+freud x = x
+
+-- 6 --
+-- freud' :: a -> a
+freud' :: Int -> Int
+freud' x = x
+
+-- 7 --
+myX = 1 :: Int
+
+-- sigmund :: a -> a -- type a is non concrete
+sigmund :: Int -> Int
+sigmund x = myX
+
+-- 8 --
+myZ = 1 :: Int
+--sigmund' :: Num a => a -> a -- same as 7
+sigmund' :: Int -> Int
+sigmund' x = myZ
+
+-- 9 --
+--jung :: Ord a => [a] -> a -- Both works fine
+jung :: [Int] -> Int
+jung xs = head (sort xs)
+
+-- 10 --
+--young :: [Char] -> Char -- Both works fine
+young :: Ord a => [a] -> a
+young xs = head (sort xs)
+
+-- 11 --
+mySort :: [Char] -> [Char]
+mySort = sort
+
+signifier :: [Char] -> Char
+-- signifier :: Ord a => [a] -> a -- Will not work
+signifier xs = head (mySort xs)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
