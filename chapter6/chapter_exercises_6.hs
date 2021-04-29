@@ -81,7 +81,6 @@ h = 1.0
 g :: RealFrac a => a
 g = 1.0
 
-
 -- 5 --
 -- freud :: a -> a
 -- Both methods work since Ord already assumes Eq
@@ -123,6 +122,47 @@ mySort = sort
 signifier :: [Char] -> Char
 -- signifier :: Ord a => [a] -> a -- Will not work
 signifier xs = head (mySort xs)
+
+
+
+
+
+
+
+
+
+
+-- TKD --
+-- 1 --
+-- TODO: Figure why these work! 
+chk :: Eq b => (a -> b) -> a -> b -> Bool
+chk f x y = (f x) == y
+
+
+-- 2 --
+arith :: Num b => (a -> b) -> Integer -> a -> b
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
