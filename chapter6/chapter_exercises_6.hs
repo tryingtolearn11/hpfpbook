@@ -125,13 +125,6 @@ signifier xs = head (mySort xs)
 
 
 
-
-
-
-
-
-
-
 -- TKD --
 -- 1 --
 -- TODO: Figure why these work! 
@@ -141,6 +134,7 @@ chk f x y = (f x) == y
 
 -- 2 --
 arith :: Num b => (a -> b) -> Integer -> a -> b
+arith f x y = (fromInteger x) + (f y)
 
 
 
