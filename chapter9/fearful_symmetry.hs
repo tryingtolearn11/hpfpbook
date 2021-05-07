@@ -4,7 +4,7 @@ module FearfulSymmetry where
 
 import Debug.Trace
 
-
+-- stringSplit (' ':x) = stringSplit x
 stringSplit :: [Char] -> [[Char]]
 stringSplit [] = []
 stringSplit (' ':x) = stringSplit x
@@ -25,7 +25,20 @@ fourth = "Could frame thy fearful\
          \ symmetry?"
 
 sentences = first ++ second ++ third ++ fourth
+
 stringSplitNewLine :: String -> [String]
 stringSplitNewLine [] = []
 stringSplitNewLine ('\n':x) = stringSplitNewLine x
 stringSplitNewLine x = takeWhile (/= '\n') x : (stringSplitNewLine (dropWhile (/= '\n') x))
+
+
+shouldEqual =
+    [ "Tyger Tyger, burning bright"
+    , "In the forests of the night"
+    , "What immortal hand or eye"
+    , "Could frame thy fearful symmetry?"
+    ]
+
+
+main :: IO ()
+main = print $ "Are they equal? " + show (stringSplitNewLine sentences == shouldEqual)
