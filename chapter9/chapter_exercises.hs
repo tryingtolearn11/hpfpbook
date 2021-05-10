@@ -107,6 +107,14 @@ myMinimumBy f (x : xs) = go f xs x
                 EQ -> go f ys y
 
 
+-- 10 --
+myMaximum :: (Ord a) => [a] -> a
+myMaximum = myMaximumBy compare 
+
+myMinimum :: (Ord a) => [a] -> a
+myMinimum = myMinimumBy compare
+
+
 
 
 
