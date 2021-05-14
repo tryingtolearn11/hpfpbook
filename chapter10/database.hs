@@ -44,32 +44,3 @@ sumDb = sum . filterDbNumber
 avgDb :: [DatabaseItem] -> Double
 avgDb xs = (fromIntegral $ (sumDb xs)) / (fromIntegral $ (length . filterDbNumber) xs)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
