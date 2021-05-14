@@ -42,3 +42,47 @@ myElem x ys = foldr ((||) . (== x)) False ys
 myElem' :: Eq a => a -> [a] -> Bool
 myElem' x ys = any (==x) ys
 
+-- 4 --
+myReverse :: [a] -> [a]
+myReverse = foldl (flip(:)) []
+
+-- 5 --
+myMap :: (a -> b) -> [a] -> [b]
+myMap f xs = foldr ((:) . f) [] xs
+
+
+-- 6 --
+myFilter :: (a -> Bool) -> [a] -> [a]
+myFilter f ys = foldr (\x y -> if f x == True then x : y else y) [] ys 
+
+-- 7 --
+squish :: [[a]] -> [a]
+squish = foldr (++) [] 
+
+-- 8 --
+squishMap :: (a -> [b]) -> [a] -> [b]
+squishMap f xs = (squish (myMap f xs))
+
+-- 9 --
+squishAgain :: [[a]] -> [a]
+squishAgain = squishMap id
+
+-- 10 --
+myMaximumBy :: (a -> a -> Ordering) -> [a] -> a
+myMaximumBy f (x : xs) = foldr (\x y -> if f x y == GT then x else y) x xs
+
+-- 11 --
+myMinimumBy :: (a -> a -> Ordering) -> [a] -> a
+myMinimumBy f (x  : xs) = foldr (\x y -> if f x y == LT then x else y) x xs 
+
+
+
+
+
+
+
+
+
+
+
+

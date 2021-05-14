@@ -116,34 +116,3 @@ myMinimum = myMinimumBy compare
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
