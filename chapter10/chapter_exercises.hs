@@ -77,12 +77,3 @@ myMinimumBy f (x  : xs) = foldr (\x y -> if f x y == LT then x else y) x xs
 
 
 
-
-
-
-
-
-
-
-
-
