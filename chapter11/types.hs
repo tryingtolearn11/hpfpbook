@@ -28,3 +28,6 @@ isPlane (_) = False
 areCars :: [Vechicle] -> [Bool]
 areCars = map isCar
 
+-- 3 --
+getManu :: Vechicle -> Manufacturer
+getManu (Car x _) = x
