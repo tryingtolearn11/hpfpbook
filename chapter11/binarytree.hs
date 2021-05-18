@@ -89,9 +89,7 @@ testPostOrder =
        then putStrLn "Postorder fine!"
        else putStrLn "Postorder Fails"
 
-
-
-
+-- lazy way 
 foldTree :: (a -> b -> b)
          -> b
          -> BinaryTree a
