@@ -92,4 +92,17 @@ testPostOrder =
 
 
 
+foldTree :: (a -> b -> b)
+         -> b
+         -> BinaryTree a
+         -> b
+foldTree f x xs = foldr f x (inorder xs)
+
+
+
+
+
+
+
+
 
