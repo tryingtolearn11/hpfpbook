@@ -16,9 +16,10 @@ f Friday = "Miller Time"
 
 
 -- Vigenere Ciper --
+-- keystream (plaintext) (key) = ...
 keystream xs ys = go xs ys 0 (length ys) " " (length xs)
-    where go (x:xs) (ys) c k s e
-            | x == ' '   = go (xs) (ys) c k (s) e
-            | c == e    = s
-            | otherwise = (ys !! (c `mod` k)) : go (xs) (ys) (c + 1) (k) s e
+    where go (x:xs) (ys) count lenKey answerString j
+            | x == ' '      = go (xs) (ys) count lenKey (answerString) j
+            | count == j    = answerString
+            | otherwise     = (ys !! (count `mod` lenKey)) : go (xs) (ys) (count + 1) (lenKey) answerString j
           go [] _ _ _ _ _ = []
