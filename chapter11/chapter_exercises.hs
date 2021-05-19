@@ -18,7 +18,7 @@ f Friday = "Miller Time"
 -- Vigenere Ciper --
 keystream xs ys = go xs ys 0 (length ys) " " (length xs)
     where go (x:xs) (ys) c k s e
-            | x == ' '  = go (x:xs) (ys) c k s e
+            | x == ' '   = go (xs) (ys) c k (s) e
             | c == e    = s
             | otherwise = (ys !! (c `mod` k)) : go (xs) (ys) (c + 1) (k) s e
           go [] _ _ _ _ _ = []
