@@ -25,6 +25,7 @@ f Friday = "Miller Time"
 abc = ['a'..'z']
 
 
+
 -- keystream (plaintext) (key) = ...
 keystream :: String -> String -> String
 keystream xs ys = go xs ys 0 (length ys) " " (length xs)
@@ -40,6 +41,15 @@ position i xs =
     case i `elemIndex` xs of
       Just n -> n
       Nothing -> 0
-
-
+{-
 -- now apply ord to each char from plaintext and shift them n positions
+ciper xs keyword = go xs (keystream xs keyword) " " 0 (length xs)
+    where go (x : xs) (y : ys) s count j
+            | count == j           = s
+            | otherwise            = abc !!(((position x abc) + (position y abc)) `mod` 26) : go (xs) (ys) (s) (count + 1) j
+          go [] _ _ _ _= []
+          go _ [] _ _ _ = []
+-}
+          
+
+
