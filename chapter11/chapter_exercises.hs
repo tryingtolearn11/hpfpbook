@@ -52,4 +52,41 @@ ciper xs keyword = go xs (keystream xs keyword) " " 0 (length xs)
 -}
           
 
+-- As-patterns --
+-- TODO: understand as-patterns more
+isSubSeqOf :: (Eq a)
+           => [a]
+           -> [a]
+           -> Bool
+isSubSeqOf [] _ = True
+isSubSeqOf _ [] = False
+isSubSeqOf xs@(x : xz) (y : yz)
+  | x == y    = isSubSeqOf xz yz
+  | otherwise = isSubSeqOf xs yz
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
