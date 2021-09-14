@@ -92,19 +92,17 @@ doubleUp' :: [a] -> [a]
 doubleUp' [] = []
 doubleUp' (x: zy) = x : (x : zy)
 
+sub:: (Eq a)
+  => [a]
+  -> [a]
+  -> Bool
+sub [] _ = True
+sub _ [] = False
+sub xs@(x:xy) (y : yz)
+  | x == y    = sub xy yz
+  | otherwise = sub xs yz
 
-
-
-
-
-
-
-
-
-
-
-
--- TODO: understand as-patterns more
+-- 1 --
 isSubSeqOf :: (Eq a)
            => [a]
            -> [a]
@@ -114,6 +112,32 @@ isSubSeqOf _ [] = False
 isSubSeqOf xs@(x : xz) (y : yz)
   | x == y    = isSubSeqOf xz yz
   | otherwise = isSubSeqOf xs yz
+
+
+
+
+-- 2 --
+-- Split a sentence into words, then tuple each word with the capitalized form
+-- of each
+captitalizeWords :: String -> [(String, String)]
+captitalizeWords xs@(x : xz) = map (\(y : yz) -> ((y:yz), toUpper y : yz)) (words $ xs)
+-- We map an anonymous function (that takes a word/element from a list and
+-- returns a tuple (abc, Abc)) onto our list of strings denoted by words $ xs. 
+
+-- Language Exercises
+-- 1 --
+captitalizeWord :: String -> String
+captitalizeWord (x : xs) = toUpper x : xs
+
+
+
+
+
+
+
+
+
+
 
 
 
