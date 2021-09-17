@@ -21,9 +21,16 @@ replaceThe xs = unwords $ map f (words xs)
 
 
 -- 2 --
+-- If we found "the", check the element ahead for initial vowel
+-- If no "the" found, move on and recurse
 
-initialvowel :: String -> Bool
-initialvowel xs = (head xs) `elem` ("aeiou")
+countTheBeforeVowel :: String -> Integer
+countTheBeforeVowel xs = g (words xs)
+    where g [] = 0
+          g ("the" : y : ys)   
+            | (head y) `elem` "aeiou" = g (ys) + 1
+            | otherwise               = g (y:ys)
+          g (y : ys) = g (ys) 
 
 
--- countTheBeforeVowel :: String -> Integer
+
