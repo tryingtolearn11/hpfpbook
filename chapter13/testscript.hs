@@ -15,4 +15,8 @@ f xs = go (length xs - 1)
             | otherwise = Nothing : go (x - 1)
 
 
+charInWord :: Puzzle -> Char -> Bool 
+charInWord (Puzzle xs _ _) x = elem x xs
 
+alreadyguess :: Puzzle -> Char -> Bool
+alreadyguess (Puzzle _ _ xs) x = elem x xs
