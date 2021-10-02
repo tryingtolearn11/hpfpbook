@@ -61,7 +61,15 @@ randomWord' = gameWords >>= randomWord
 -- Write a function that takes puzzle word and converts it into a list of
 -- Nothing.
 freshPuzzle :: String -> Puzzle
-freshPuzzle = undefined
+freshPuzzle word = Puzzle (word) (f word) []
+
+
+f :: [a1] -> [Maybe a2]
+f [] = []
+f xs = go (length xs - 1)
+    where go x
+            | x == 0 = Nothing : []
+            | otherwise = Nothing : go (x - 1)
 
 
 
