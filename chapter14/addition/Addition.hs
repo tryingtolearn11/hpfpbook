@@ -13,12 +13,18 @@ dividedBy num denom = go num denom 0
             | otherwise = go (n - d) d (count + 1)
 
 
+rMult :: Integral a => a -> a -> a
+rMult x y = go x y 0 0
+    where go x y count sum
+            | count == y = sum
+            | otherwise  = go x y (count + 1) (sum + x)
+
 
 main :: IO ()
 main = hspec $ do
     describe "Addition" $ do
-        it "15 divided by 3 is 15" $ do
-            dividedBy 15 3 `shouldBe` (5, 0)
-        it "22 divided by 5 is 4 remainder 2" $ do
-            dividedBy 22 5 `shouldBe` (4, 2)
+        it "10 multiplied by 2 is 20" $ do
+            rMult 10 2 `shouldBe` 20
+        it "22 multiplied by 5 is 110" $ do
+            rMult 22 5 `shouldBe` 110
 
