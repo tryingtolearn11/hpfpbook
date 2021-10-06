@@ -51,7 +51,9 @@ letterToMorse = M.fromList [ ('a', ".-")
 
 
 morseToLetter :: M.Map Morse Char
-morseToLetter = M.foldWithKey (flip M.insert) M.empty letterToMorse
+morseToLetter =
+    M.foldrWithKey (flip M.insert) M.empty
+                  letterToMorse
 
 charToMorse :: Char -> Maybe Morse
 charToMorse c = M.lookup c letterToMorse
