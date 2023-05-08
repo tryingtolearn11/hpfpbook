@@ -1,1 +1,2 @@
 # hpfpbook
+# Learning haskell
